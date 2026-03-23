@@ -17,7 +17,7 @@ O objetivo é analisar o desempenho de ambos em vetores de diferentes tamanhos (
    python3 main.py data/nome_do_arquivo.in
 ```
 ## Resultados de Desempenho
-Os testes foram realizados processando 12 arquivos de entrada. Os tempos abaixo representam a execução em segundos ($O(n^2)$).
+Os testes foram realizados processando 12 arquivos de entrada. Os tempos abaixo representam a execução em segundos (O(n²)).
 
 ```bash
 moraes@vm-marcelo:~/EDCA/ordena-compara-ufpb$ python3 testartudo.py
