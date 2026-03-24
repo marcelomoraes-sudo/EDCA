@@ -43,6 +43,7 @@ num.100000.4.in           | 100001   | 123.00459       | 100.07650
 ```bash
 * src/: Implementações dos algoritmos (selection_sort e insertion_sort).
 * data/: Arquivos de entrada fornecidos pelo professor.
+* saidas/: Arquivos de saídas de execuções de prova.
 * main.py: Script de entrada para execução individual.
 * testartudo.py: Automação para processar os 12 casos de teste.
 * Makefile: Automação de comandos de linha de comando
