@@ -1,19 +1,41 @@
 def selection_sort(arr):
     n = len(arr)
-    for i in range(n):
+    # Percorre todo o array (exceto o último elemento)
+    for i in range(n-1):
+        # Assume que a posição atueal é o mínimo
         min_idx = i
+         
+        # Procura pelo menor elemento na porção não ordena
         for j in range(i + 1, n):
             if arr[j] < arr[min_idx]:
+                # Encontrou o elemento menor
                 min_idx = j
-        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+        
+        # Troca os elementos se um novo mínimo foi encontrado
+        if min_idx != i:
+            arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
     return arr
 
+
+
 def insertion_sort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]
+    # O tamanho da lista é obtido dinamicamente
+    n = len(arr)
+
+    # Começaos do segundo elemento (indice 1)
+    # pois o primeiro elemento sozinho já é considerando "ordenado"
+    for i in range(1, n):
+        key = arr[i]   # O valor que queremos inserir na parte ordenada
         j = i - 1
+
+        # Move os elementos maiores que a 'key' uma posição para a direita
+        # até encontrarmos o lugar correto da 'key'.
         while j >= 0 and key < arr[j]:
             arr[j + 1] = arr[j]
             j -= 1
+
+        # Coloca a 'key' no espaço vazio criado pelo deslocamento
         arr[j + 1] = key
+
     return arr

@@ -1,0 +1,4 @@
+
+--- Processando: num.1000.4.in (1001 elementos) ---
+Selection Sort: 0.01118 segundos
+Insertion Sort: 0.00831 segundos
