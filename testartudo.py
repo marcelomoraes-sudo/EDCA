@@ -1,6 +1,6 @@
 import os
 import time
-from src.algoritmos import selection_sort, insertion_sort
+from src.algoritmos import selection_sort, insertion_sort, merge_sort, quick_sort
 
 def ler_arquivo(caminho):
     with open(caminho, 'r') as f:
@@ -11,8 +11,9 @@ def rodar_experimento():
     # Lista e ordena os arquivos para processar do menor para o maior
     arquivos = sorted([f for f in os.listdir(pasta_dados) if f.endswith('.in')])
     
-    print(f"{'Arquivo':<25} | {'N':<8} | {'Selection (s)':<15} | {'Insertion (s)':<15}")
-    print("-" * 70)
+#    print(f"{'Arquivo':<25} | {'N':<8} | {'Selection (s)':<15} | {'Insertion (s)':<15}")
+    print(f"{'Arquivo':<25} | {'N':<8} | {'Selection (s)':<15} | {'Insertion (s)':<15} | {'Merge (s)':<15} | {'Quick (s)':<15}")
+    print("-" * 103)
 
     for nome_arq in arquivos:
         caminho = os.path.join(pasta_dados, nome_arq)
@@ -33,7 +34,21 @@ def rodar_experimento():
         fim = time.perf_counter()
         t_ins = fim - inicio
 
-        print(f"{nome_arq:<25} | {n:<8} | {t_sel:<15.5f} | {t_ins:<15.5f}")
+        # Medição MergeSort
+        copia_merge = dados_originais.copy()
+        inicio = time.perf_counter()
+        merge_sort(copia_merge)
+        fim = time.perf_counter()
+        t_merge = fim - inicio
+
+        # Medição QuickSort
+        copia_quick = dados_originais.copy()
+        inicio = time.perf_counter()
+        quick_sort(copia_quick)
+        fim = time.perf_counter()
+        t_quick = fim - inicio
+
+        print(f"{nome_arq:<25} | {n:<8} | {t_sel:<15.5f} | {t_ins:<15.5f} | {t_merge:<15.5f} | {t_quick:<15.5f}")
 
 if __name__ == "__main__":
     if not os.path.exists('data'):

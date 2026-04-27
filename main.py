@@ -1,7 +1,7 @@
 import sys
 import time
 import os
-from src.algoritmos import selection_sort, insertion_sort
+from src.algoritmos import selection_sort, insertion_sort, merge_sort, quick_sort
 
 def ler_arquivo(caminho):
     """Lê o arquivo e retorna uma lista de inteiros."""
@@ -37,6 +37,25 @@ def executar_testes(caminho_arquivo):
     end = time.perf_counter()
     tempo_ins = end - start
     print(f"Insertion Sort: {tempo_ins:.5f} segundos")
+
+    # Teste Merge Sort
+    dados_merge = numeros.copy()
+    start = time.perf_counter()
+    merge_sort(dados_merge)
+    end = time.perf_counter()
+    tempo_merge = end - start
+    print(f"Merge Sort: {tempo_merge:.5f} segundos")
+
+    # Teste Quick Sort
+    dados_quick = numeros.copy()
+    start = time.perf_counter()
+    quick_sort(dados_quick)
+    end = time.perf_counter()
+    tempo_quick = end - start
+    print(f"Quick Sort: {tempo_quick:.5f} segundos")
+
+
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
